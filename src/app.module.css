@@ -22,7 +22,7 @@
   border: none;
   width: 100%;
   height: 100%;
-  padding: 5px 8px;
+  padding: 5px 10px;
   outline: none;
   background-color: rgba(213, 218, 246, 0.21);
   border-radius: 5px;
@@ -47,29 +47,73 @@
 
 .main {
   padding: 0 1rem;
+  margin-bottom: 5rem;
 }
 
-.todoList {
+.activeTasks,
+.completedTasks {
   width: 30rem;
   max-width: 100%;
   margin: auto;
   margin-top: 5rem;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.activeTasks {
+  background-color: rgba(213, 218, 246, 0.5);
+}
+
+.activeTasks .todoCard {
+  background-color: #2f4bde;
+}
+
+.activeTasks > h1 {
+  color: rgba(47, 75, 222, 0.5);
+  padding-bottom: 1.5rem;
+}
+
+.activeTasks > .placeHolderText,
+.completedTasks > .placeHolderText {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #2f4bde;
+  padding: 1rem 0;
+}
+
+.completedTasks {
+  background-color: rgba(249, 76, 102, 0.15);
+}
+
+.completedTasks .todoCard {
+  background-color: rgb(249, 76, 102);
+}
+
+.completedTasks > h1 {
+  color: rgba(249, 76, 102, 0.5);
+  padding-bottom: 1.5rem;
+}
+
+.completedTasks > .placeHolderText {
+  color: rgb(249, 76, 102);
 }
 
 .todoCard {
-  background-color: #2f4bde;
   display: flex;
   justify-content: space-between;
-  gap: 1.5rem;
+  gap: 1rem;
   align-items: center;
+  height: 4rem;
   color: white;
   margin-bottom: 1rem;
-  padding: 1rem 20px;
+  padding: 5px 10px;
   border-radius: 10px;
 }
 
 .todo {
   font-size: 15px;
+  padding-left: 5px;
 }
 
 .todoActions {
@@ -77,8 +121,30 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+  padding-right: 5px;
 }
 
 .todoActions svg {
   cursor: pointer;
+}
+
+.editInput {
+  height: 80%;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(213, 218, 246, 0.21);
+  color: white;
+  outline: none;
+  padding: 0 10px;
+}
+
+/* media queries */
+@media only screen and (min-width: 970px) {
+  .container {
+    width: 970px;
+    margin: auto;
+    display: flex;
+    gap: 2.5rem;
+  }
 }

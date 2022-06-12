@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import style from './app.module.css';
+import ActiveTodos from './components/ActiveTodos';
+import CompletedTodoList from './components/CompletedTodos';
 import Input from './components/Input';
-import TodoList from './components/TodoList';
 import { Todo } from './Model';
 
 function App() {
@@ -24,7 +25,6 @@ function App() {
 
   useEffect(() => {
     const local_todos = localStorage.getItem('todos');
-
     setTodos(local_todos ? JSON.parse(local_todos) : []);
   }, []);
 
@@ -36,7 +36,10 @@ function App() {
 
       <main className={style.main}>
         <Input setTodo={setTodo} todo={todo} handleAdd={handleAdd} />
-        <TodoList todos={todos} />
+        <section className={style.container}>
+          <ActiveTodos todos={todos} setTodos={setTodos} />
+          <CompletedTodoList todos={todos} setTodos={setTodos} />
+        </section>
       </main>
     </div>
   );
